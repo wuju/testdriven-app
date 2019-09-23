@@ -5,9 +5,9 @@ services:
   users:
     build:
       context: ./services/users
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-prod
     ports:
-      - 5001:5000
+      - 5000
     environment:
       - FLASK_ENV=production
       - APP_SETTINGS=project.config.ProductionConfig
@@ -21,7 +21,17 @@ services:
       context: ./services/users/project/db
       dockerfile: Dockerfile
     ports:
-      - 5435:5432
+      - 5432
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres    
+      - POSTGRES_PASSWORD=postgres
+  
+  nginx:
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile-prod
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - users
