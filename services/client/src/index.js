@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 import UsersList from './components/UserList';
+import AddUser   from './components/AddUser';
 
 
 // new
@@ -33,6 +34,8 @@ class App extends Component {
               <br />
               <h1 className="title is-1">All Users</h1>
               <hr /><br />
+              <AddUser />
+              <br></br>
               <UsersList users={this.state.users} />
             </div>
           </div>
