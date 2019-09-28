@@ -1,2 +1,6 @@
 env
-services/users/htmlcov
+.dockerignore
+Dockerfile
+Dockerfile-prod
+htmlcov
+migrations
