@@ -1,3 +1,9 @@
 {
-    "python.pythonPath": "/home/wuju/ws/testdriven-app/services/users/env/bin/python"
+    "python.pythonPath": "/home/wuju/ws/testdriven-app/services/users/env/bin/python",
+    "terminal.integrated.env.linux": {
+        "REACT_APP_USERS_SERVICE_URL": "http://wuju-app-dev"
+    },
+    "python.analysis.disabled": [
+        "inherit-non-class"
+    ],
 }

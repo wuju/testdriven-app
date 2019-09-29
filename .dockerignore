@@ -7,3 +7,4 @@ htmlcov
 Dockerfile
 Dockerfile-prod
 migrations
+.env
