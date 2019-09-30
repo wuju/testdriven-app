@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
-import UsersList from '../UserList';
+import UsersList from '../UsersList';
 
 const users = [
   {
