@@ -7,6 +7,7 @@ import AddUser from './components/AddUser';
 import About from './components/About';
 import NavBar from './components/NavBar';
 import Form from './components/Form';
+import Logout from './components/Logout';
 
 class App extends Component {
   constructor() {
@@ -27,6 +28,7 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleUserFormSubmit = this.handleUserFormSubmit.bind(this);
     this.handleFormChange = this.handleFormChange.bind(this);
+    this.logoutUser = this.logoutUser.bind(this);
   }
 
   componentDidMount() {
@@ -52,6 +54,11 @@ class App extends Component {
       })
       .catch((err) => { console.log(err); });
   }
+
+  logoutUser() {
+    window.localStorage.clear();
+    this.setState({ isAuthenticated: false });
+  };
 
   handleChange(event) {
     const obj = {};
@@ -137,7 +144,13 @@ class App extends Component {
                       handleFormChange={this.handleFormChange}
                       isAuthenticated={this.state.isAuthenticated}
                     />
-                  )} />                            
+                  )} />
+                  <Route exact path='/logout'  render={() => (
+                    <Logout
+                      logoutUser={this.logoutUser}
+                      isAuthenticated={this.state.isAuthenticated}
+                      />
+                  )} />
                 </Switch>
                 <Route exact path='/about' component={About}/>
               </div>
