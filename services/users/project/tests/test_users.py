@@ -281,7 +281,7 @@ class TestUserService(BaseTestCase):
         add_user('test', 'test@test.com', 'test')
         user = User.query.filter_by(email='test@test.com').first()
         user.admin = True
-        db.session.commit()        
+        db.session.commit()
         with self.client:
             resp_login = self.client.post(
                 '/auth/login',
